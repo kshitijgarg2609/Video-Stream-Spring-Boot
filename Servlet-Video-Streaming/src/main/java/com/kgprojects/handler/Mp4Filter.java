@@ -8,6 +8,7 @@ public class Mp4Filter implements FilenameFilter
 	@Override
 	public boolean accept(File dir, String name)
 	{
-		return name.toLowerCase().endsWith(".mp4");
+		File file = new File(dir,name);
+		return file.isFile() && name.toLowerCase().endsWith(".mp4");
 	}
 }
