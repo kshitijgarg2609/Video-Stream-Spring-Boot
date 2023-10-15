@@ -41,7 +41,7 @@ public class VideoStreamController
 		return "listvideos";
 	}
 	
-	@GetMapping("/video/{fileName}")
+	@GetMapping(path = "/video/{fileName}",produces = "video/mp4")
 	public Mono<ResponseEntity<byte[]>> streamVideo(@PathVariable String fileName, RequestEntity<byte[]> req)
 	{
 		String range=req.getHeaders().getOrDefault("range", Arrays.asList("0-")).get(0);
